@@ -23,70 +23,10 @@
     <hr />
 
     @if (formGroup.controls.level.value === "OFFLINE") {
-        <div formGroupName="offline">
-            <div class="row mb-3">
-                <label for="tel" class="col-2 col-form-label">tel</label>
-                <div class="col-4">
-                    <input type="tel" formControlName="tel" id="tel" class="form-control" />
-                </div>
-            </div>
-
-            <div class="row mb-3" formGroupName="sub">
-                <label for="income" class="col-2 col-form-label">income</label>
-                <div class="col-4">
-                    <input
-                        type="number"
-                        formControlName="income"
-                        id="income"
-                        class="form-control"
-                        [ngClass]="sub.controls.income.errors ? 'is-invalid' : 'is-valid'"
-                    />
-                </div>
-            </div>
-        </div>
+        <app-offline-form [formGroup]="formGroup.controls.offline"></app-offline-form>
     } @else if (formGroup.controls.level.value === "ONLINE") {
-        <div formGroupName="online">
-            <div class="row mb-3">
-                <label for="email" class="col-2 col-form-label">email</label>
-                <div class="col-4">
-                    <input type="email" formControlName="email" id="email" class="form-control" />
-                </div>
-            </div>
-
-            <div class="row mb-3" formGroupName="sub">
-                <label for="income" class="col-2 col-form-label">income</label>
-                <div class="col-4">
-                    <input
-                        type="number"
-                        formControlName="income"
-                        id="income"
-                        class="form-control"
-                        [ngClass]="sub.controls.income.errors ? 'is-invalid' : 'is-valid'"
-                    />
-                </div>
-            </div>
-        </div>
+        <app-online-form [formGroup]="formGroup.controls.online"></app-online-form>
     } @else if (formGroup.controls.level.value === "EXPERT") {
-        <div formGroupName="offline">
-            <div class="row mb-3">
-                <label for="url" class="col-2 col-form-label">site</label>
-                <div class="col-4">
-                    <input type="url" formControlName="url" id="url" class="w-100" class="form-control" />
-                </div>
-            </div>
-
-            <div class="row mb-3" formGroupName="sub">
-                <label for="income" class="col-2 col-form-label">income</label>
-                <div class="col-4">
-                    <input
-                        type="number"
-                        formControlName="income"
-                        id="income"
-                        class="form-control"
-                        [ngClass]="sub.controls.income.errors ? 'is-invalid' : 'is-valid'"
-                    />
-                </div>
-            </div>
-        </div>
+        <app-expert-form [formGroup]="formGroup.controls.expert"></app-expert-form>
     }
 </div>

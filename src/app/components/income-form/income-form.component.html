@@ -1,0 +1,12 @@
+<div class="row mb-3" [formGroup]="formGroup">
+    <label for="income" class="col-2 col-form-label">income</label>
+    <div class="col-4">
+        <input
+            type="number"
+            formControlName="income"
+            id="income"
+            class="form-control"
+            [ngClass]="formGroup.controls.income.errors ? 'is-invalid' : 'is-valid'"
+        />
+    </div>
+</div>
