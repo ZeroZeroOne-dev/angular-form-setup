@@ -24,7 +24,7 @@ export class MainFormContainerComponent {
 
     techLevel = Object.entries(TechLevel).map((e) => ({ key: e[0], value: e[1] }));
 
-    minSex = Validators.min(1000);
+    minIncome = Validators.min(1000);
 
     sub = this.fb.group({
         income: this.fb.nonNullable.control(0, [Validators.required]),
@@ -33,7 +33,7 @@ export class MainFormContainerComponent {
 
     formGroup = this.fb.group({
         name: this.fb.nonNullable.control('', [Validators.required]),
-        sex: this.fb.nonNullable.control(true, [Validators.required]),
+        independent: this.fb.nonNullable.control(true, [Validators.required]),
         level: this.fb.control<TechLevel | null>(null, [Validators.required]),
         offline: createOfflineFormGroup(this.fb, { incomeSub: this.sub }),
         online: createOnlineFormGroup(this.fb, { incomeSub: this.sub }),
