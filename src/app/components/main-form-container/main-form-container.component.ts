@@ -1,11 +1,11 @@
 import { NgClass } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { startWith } from 'rxjs';
 import { addValueChanges } from './main-form-container.valuechanges';
 import { createOfflineFormGroup, OfflineFormComponent } from '../offline-form/offline-form.component';
 import { OnlineFormComponent, createOnlineFormGroup } from '../online-form/online-form.component';
 import { ExpertFormComponent, createExpertFormGroup } from '../expert-form/expert-form.component';
+import { createIncomeFormGroup } from '../income-form/income-form.component';
 
 enum TechLevel {
     offline = 'OFFLINE',
@@ -26,10 +26,7 @@ export class MainFormContainerComponent {
 
     minIncome = Validators.min(1000);
 
-    sub = this.fb.group({
-        income: this.fb.nonNullable.control(0, [Validators.required]),
-        vatIncluded: this.fb.nonNullable.control(false),
-    });
+    sub = createIncomeFormGroup(this.fb);
 
     formGroup = this.fb.group({
         name: this.fb.nonNullable.control('', [Validators.required]),
